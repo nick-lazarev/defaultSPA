@@ -1,6 +1,6 @@
 import type { RouteObject } from "react-router";
 
-import { IndexPage } from "../../../pages";
+import { IndexPage } from "../../pages";
 
 export const config: RouteObject[] = [
     {

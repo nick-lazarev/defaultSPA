@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
-import { config } from "../model";
+import { config } from "./routes";
 
 const router = createBrowserRouter(config);
 

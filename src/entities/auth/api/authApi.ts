@@ -1,4 +1,4 @@
-import { baseApi } from '@shared/baseApi'
+import { baseApi } from '@shared/api'
 
 export type LoginParams = {
     email: string;

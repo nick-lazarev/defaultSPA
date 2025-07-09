@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
-import { config } from "./routes";
+import { routesConfig } from "./routesConfig";
 
-const router = createBrowserRouter(config);
+const router = createBrowserRouter(routesConfig);
 
 export const Router = () => {
     return (

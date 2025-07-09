@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { Form, FormTextField } from '@shared/ui'
 import { Button, DialogActions, DialogContent, DialogTitle, Paper, Stack } from "@mui/material";
 import type { AuthFormData } from "../model";
+import { useLoginMutation } from "@entities/auth";
+import { usePageLoaderContext } from "@shared/model";
 
 export const defaultValues = {
   email: '',
@@ -14,8 +16,15 @@ export const AuthForm = () => {
     defaultValues
   })
 
-  const onSubmit = useCallback((data: AuthFormData) => {
+  const [ login ] = useLoginMutation();
+  const { toggleLoading } = usePageLoaderContext();
+
+  const onSubmit = useCallback(async (data: AuthFormData) => {
+    toggleLoading();
+
+    await login(data).unwrap();
     
+    toggleLoading();
   }, []); 
 
   return (

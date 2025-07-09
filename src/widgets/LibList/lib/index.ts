@@ -12,5 +12,9 @@ export const config: LabListConfigType[] = [
     {
         label: 'React router',
         url: ''
+    },
+    {
+        label: 'React hook form',
+        url: ''
     }
 ]

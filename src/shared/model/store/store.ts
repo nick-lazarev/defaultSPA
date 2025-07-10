@@ -1,5 +1,6 @@
 import { authSlice } from '@entities/auth'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import { rtkQueryErrorLogger } from '@shared/api'
 import { baseApi } from '@shared/api/baseApi'
 import { persistReducer, persistStore } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
@@ -22,7 +23,10 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: ["persist/PERSIST", "persist/REHYDRATE"],
       },
-    }).concat(baseApi.middleware),
+    }).concat(
+      rtkQueryErrorLogger,
+      baseApi.middleware
+    ),
 })
 
 export const persistor = persistStore(store);

@@ -11,10 +11,12 @@ export const FormTextField = ({
     <Controller
       control={control}
       name={name}
-      render={({ field }) => (
+      render={({ field, fieldState }) => (
         <TextField
           {...props}
           {...field}
+          inputRef={field.ref}
+          error={fieldState.invalid}
         />
       )}
     />

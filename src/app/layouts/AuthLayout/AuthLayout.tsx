@@ -1,5 +1,7 @@
 import { authSlice } from "@entities/auth"
+import { Stack } from "@mui/material"
 import { routes } from "@shared/libs"
+import { Header } from "@shared/ui"
 import { useSelector } from "react-redux"
 import { Navigate, Outlet } from "react-router"
 
@@ -10,5 +12,12 @@ export const AuthLayout = () => {
     return <Navigate to={routes.authorization} />
   }
 
-  return <Outlet />
+  return (
+    <Stack flexGrow={1}>
+      <Header />
+      <Stack flexGrow={1} p={2}>
+        <Outlet />
+      </Stack>
+    </Stack>
+  )
 }

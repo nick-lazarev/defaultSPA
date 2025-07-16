@@ -2,9 +2,10 @@ import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { Form, FormTextField } from '@shared/ui'
 import { Button, DialogActions, DialogContent, DialogTitle, Paper, Stack } from "@mui/material";
-import type { AuthFormData } from "../model";
+import { AuthFormDataScheme, type AuthFormData } from "../model";
 import { useLoginMutation } from "@entities/auth";
 import { usePageLoaderContext } from "@shared/model";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export const defaultValues = {
   email: '',
@@ -13,7 +14,12 @@ export const defaultValues = {
 
 export const AuthForm = () => {
   const formMethods = useForm<AuthFormData>({
-    defaultValues
+    defaultValues,
+    resolver: zodResolver(AuthFormDataScheme),
+    resetOptions: {
+      keepDirtyValues: true,
+      keepErrors: true,
+    },
   })
 
   const [ login ] = useLoginMutation();
@@ -22,8 +28,11 @@ export const AuthForm = () => {
   const onSubmit = useCallback(async (data: AuthFormData) => {
     toggleLoading();
 
-    await login(data).unwrap();
-    
+    try {
+      await login(data).unwrap(); 
+    } catch (_error) {
+    }
+
     toggleLoading();
   }, []); 
 

@@ -8,7 +8,7 @@ export const Header = () => {
 
   const handleLogout = useCallback(() => {
       dispatch(logout());
-  }, []);
+  }, [dispatch]);
 
   return (
     <AppBar position="static" sx={{ backgroundColor: "white"}}>

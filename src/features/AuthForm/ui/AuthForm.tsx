@@ -28,13 +28,10 @@ export const AuthForm = () => {
   const onSubmit = useCallback(async (data: AuthFormData) => {
     toggleLoading();
 
-    try {
-      await login(data).unwrap(); 
-    } catch (_error) {
-    }
+    await login(data).unwrap();
 
     toggleLoading();
-  }, []); 
+  }, [login, toggleLoading]); 
 
   return (
     <Form onSubmit={onSubmit} {...formMethods}>

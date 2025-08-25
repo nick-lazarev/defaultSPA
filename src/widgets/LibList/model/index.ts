@@ -1,4 +1,4 @@
-export type LabListConfigType = {
-    label: string;
-    url: string;
+export interface LabListConfigType {
+  label: string;
+  url: string;
 }

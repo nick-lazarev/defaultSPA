@@ -1,4 +1,4 @@
-export type AuthSliceState = {
-  isAuth: boolean,
-  token: null | string,
-};
+export interface AuthSliceState {
+  isAuth: boolean;
+  token: null | string;
+}

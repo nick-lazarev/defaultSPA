@@ -3,13 +3,9 @@ import { useMemo } from "react";
 import { config } from "../lib";
 
 export const LibList = () => {
-    const listItems = useMemo(() => {
-        return config.map((el) => <ListItem key={el.label}>{el.label}</ListItem>);
-    }, []);
+  const listItems = useMemo(() => {
+    return config.map((el) => <ListItem key={el.label}>{el.label}</ListItem>);
+  }, []);
 
-    return (
-        <List>
-            {listItems}
-        </List>
-    );
-}
+  return <List>{listItems}</List>;
+};

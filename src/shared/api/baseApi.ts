@@ -4,4 +4,4 @@ import { baseQuery } from "./baseQuery";
 export const baseApi = createApi({
   baseQuery,
   endpoints: () => ({}),
-})
+});

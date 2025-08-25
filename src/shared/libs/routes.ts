@@ -1,4 +1,4 @@
 export const routes = {
-  index: '/',
-  authorization: '/authorization'
+  index: "/",
+  authorization: "/authorization",
 } as const;

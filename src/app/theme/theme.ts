@@ -5,14 +5,14 @@ export const theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         body: {
-          minHeight: '100vh',
+          minHeight: "100vh",
 
-          '#root': {
-            minHeight: '100vh',
-            display: 'flex'
-          }
-        }
-      }
-    }
-  }
+          "#root": {
+            minHeight: "100vh",
+            display: "flex",
+          },
+        },
+      },
+    },
+  },
 });

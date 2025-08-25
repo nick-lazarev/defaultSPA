@@ -1,2 +1,2 @@
-export * from './IndexPage';
-export * from './AuthPage';
+export * from "./IndexPage";
+export * from "./AuthPage";

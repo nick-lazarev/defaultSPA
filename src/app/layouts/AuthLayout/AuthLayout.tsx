@@ -1,15 +1,15 @@
-import { authSlice } from "@entities/auth"
-import { Stack } from "@mui/material"
-import { routes } from "@shared/libs"
-import { Header } from "@shared/ui"
-import { useSelector } from "react-redux"
-import { Navigate, Outlet } from "react-router"
+import { authSlice } from "@entities/auth";
+import { Stack } from "@mui/material";
+import { routes } from "@shared/libs";
+import { Header } from "@shared/ui";
+import { useSelector } from "react-redux";
+import { Navigate, Outlet } from "react-router";
 
 export const AuthLayout = () => {
-  const { isAuth } = useSelector(authSlice.selectSlice)
+  const { isAuth } = useSelector(authSlice.selectSlice);
 
   if (!isAuth) {
-    return <Navigate to={routes.authorization} />
+    return <Navigate to={routes.authorization} />;
   }
 
   return (
@@ -19,5 +19,5 @@ export const AuthLayout = () => {
         <Outlet />
       </Stack>
     </Stack>
-  )
-}
+  );
+};

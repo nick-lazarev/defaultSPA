@@ -22,29 +22,31 @@ export const Header = () => {
           justifyContent="space-between"
           alignItems={"center"}
           flexGrow={1}
+          flexWrap={"wrap"}
+          spacing={2}
         >
           <Grid
             direction="row"
-            justifyContent="flex-end"
+            justifyContent="space-between"
             alignItems={"center"}
-            spacing={1}
+            flexGrow={1}
+            flexWrap={"wrap"}
           >
             <Typography color="black" variant="h5">
               {t("header.title")}
             </Typography>
           </Grid>
           <Grid
-            size={4}
             container
             direction="row"
-            justifyContent="flex-end"
             alignItems={"center"}
             spacing={1}
+            flexWrap={"wrap"}
           >
-            <Grid size={5}>
+            <Grid>
               <LangSelect />
             </Grid>
-            <Grid size={5}>
+            <Grid sx={{ width: "125px" }}>
               <Button variant="text" onClick={handleLogout}>
                 {t("header.logout")}
               </Button>

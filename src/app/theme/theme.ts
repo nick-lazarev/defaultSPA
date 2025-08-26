@@ -38,5 +38,13 @@ export const theme = createTheme({
         },
       },
     },
+    MuiToolbar: {
+      styleOverrides: {
+        root: {
+          paddingTop: "8px",
+          paddingBottom: "8px",
+        },
+      },
+    },
   },
 });

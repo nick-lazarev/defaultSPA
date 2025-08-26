@@ -2,6 +2,7 @@ import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { Form, FormTextField } from "@shared/ui";
 import {
+  Box,
   Button,
   DialogActions,
   DialogContent,
@@ -48,29 +49,36 @@ export const AuthForm = () => {
   );
 
   return (
-    <Form onSubmit={onSubmit} {...formMethods}>
-      <Paper sx={{ width: "400px" }}>
-        <DialogTitle>{t("authorization")}</DialogTitle>
-        <DialogContent>
-          <Stack spacing={2}>
-            <FormTextField
-              name="email"
-              label={t("email")}
-              placeholder={t("email")}
-            />
-            <FormTextField
-              name="password"
-              label={t("password")}
-              placeholder={t("password")}
-            />
-          </Stack>
-        </DialogContent>
-        <DialogActions>
-          <Button fullWidth variant="contained" type="submit">
-            {t("signIn")}
-          </Button>
-        </DialogActions>
+    <Box
+      sx={{ width: "100%" }}
+      display={"flex"}
+      justifyContent={"center"}
+      alignItems={"center"}
+    >
+      <Paper sx={{ width: "100%", maxWidth: "400px", mx: "8px" }}>
+        <Form onSubmit={onSubmit} {...formMethods}>
+          <DialogTitle>{t("authorization")}</DialogTitle>
+          <DialogContent>
+            <Stack spacing={2}>
+              <FormTextField
+                name="email"
+                label={t("email")}
+                placeholder={t("email")}
+              />
+              <FormTextField
+                name="password"
+                label={t("password")}
+                placeholder={t("password")}
+              />
+            </Stack>
+          </DialogContent>
+          <DialogActions>
+            <Button fullWidth variant="contained" type="submit">
+              {t("signIn")}
+            </Button>
+          </DialogActions>
+        </Form>
       </Paper>
-    </Form>
+    </Box>
   );
 };

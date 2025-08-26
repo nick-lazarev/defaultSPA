@@ -66,7 +66,9 @@ export const AuthForm = () => {
           </Stack>
         </DialogContent>
         <DialogActions>
-          <Button type="submit">{t("signIn")}</Button>
+          <Button fullWidth variant="contained" type="submit">
+            {t("signIn")}
+          </Button>
         </DialogActions>
       </Paper>
     </Form>

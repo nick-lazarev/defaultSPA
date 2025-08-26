@@ -18,7 +18,6 @@ export const PageLoaderProvider = ({ children }: PropsWithChildren) => {
   return (
     <PageLoaderContext.Provider value={value}>
       <Loader isLoading={isLoading} />
-
       {children}
     </PageLoaderContext.Provider>
   );

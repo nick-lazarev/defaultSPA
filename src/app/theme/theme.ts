@@ -14,5 +14,29 @@ export const theme = createTheme({
         },
       },
     },
+    MuiDialogContent: {
+      styleOverrides: {
+        root: {
+          paddingTop: "8px !important",
+        },
+      },
+    },
+    MuiDialogActions: {
+      styleOverrides: {
+        root: {
+          padding: "8px 24px 24px 24px",
+        },
+      },
+    },
+    MuiTypography: {
+      styleOverrides: {
+        h4: {
+          fontWeight: 700,
+        },
+        h5: {
+          fontWeight: 700,
+        },
+      },
+    },
   },
 });

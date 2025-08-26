@@ -2,6 +2,7 @@ import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { Form, FormTextField } from "@shared/ui";
 import {
+  Box,
   Button,
   DialogActions,
   DialogContent,
@@ -13,6 +14,7 @@ import { AuthFormDataScheme, type AuthFormData } from "../model";
 import { useLoginMutation } from "@entities/auth";
 import { usePageLoaderContext } from "@shared/model";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslation } from "react-i18next";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const defaultValues = {
@@ -21,6 +23,8 @@ export const defaultValues = {
 };
 
 export const AuthForm = () => {
+  const { t } = useTranslation("auth");
+
   const formMethods = useForm<AuthFormData>({
     defaultValues,
     resolver: zodResolver(AuthFormDataScheme),
@@ -45,23 +49,36 @@ export const AuthForm = () => {
   );
 
   return (
-    <Form onSubmit={onSubmit} {...formMethods}>
-      <Paper sx={{ width: "400px" }}>
-        <DialogTitle>Authorization</DialogTitle>
-        <DialogContent>
-          <Stack spacing={2}>
-            <FormTextField name="email" label="email" placeholder="email" />
-            <FormTextField
-              name="password"
-              label="password"
-              placeholder="password"
-            />
-          </Stack>
-        </DialogContent>
-        <DialogActions>
-          <Button type="submit">Sign In</Button>
-        </DialogActions>
+    <Box
+      sx={{ width: "100%" }}
+      display={"flex"}
+      justifyContent={"center"}
+      alignItems={"center"}
+    >
+      <Paper sx={{ width: "100%", maxWidth: "400px", mx: "8px" }}>
+        <Form onSubmit={onSubmit} {...formMethods}>
+          <DialogTitle>{t("authorization")}</DialogTitle>
+          <DialogContent>
+            <Stack spacing={2}>
+              <FormTextField
+                name="email"
+                label={t("email")}
+                placeholder={t("email")}
+              />
+              <FormTextField
+                name="password"
+                label={t("password")}
+                placeholder={t("password")}
+              />
+            </Stack>
+          </DialogContent>
+          <DialogActions>
+            <Button fullWidth variant="contained" type="submit">
+              {t("signIn")}
+            </Button>
+          </DialogActions>
+        </Form>
       </Paper>
-    </Form>
+    </Box>
   );
 };

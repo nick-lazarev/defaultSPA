@@ -13,6 +13,7 @@ import { AuthFormDataScheme, type AuthFormData } from "../model";
 import { useLoginMutation } from "@entities/auth";
 import { usePageLoaderContext } from "@shared/model";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslation } from "react-i18next";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const defaultValues = {
@@ -21,6 +22,8 @@ export const defaultValues = {
 };
 
 export const AuthForm = () => {
+  const { t } = useTranslation("auth");
+
   const formMethods = useForm<AuthFormData>({
     defaultValues,
     resolver: zodResolver(AuthFormDataScheme),
@@ -47,19 +50,23 @@ export const AuthForm = () => {
   return (
     <Form onSubmit={onSubmit} {...formMethods}>
       <Paper sx={{ width: "400px" }}>
-        <DialogTitle>Authorization</DialogTitle>
+        <DialogTitle>{t("authorization")}</DialogTitle>
         <DialogContent>
           <Stack spacing={2}>
-            <FormTextField name="email" label="email" placeholder="email" />
+            <FormTextField
+              name="email"
+              label={t("email")}
+              placeholder={t("email")}
+            />
             <FormTextField
               name="password"
-              label="password"
-              placeholder="password"
+              label={t("password")}
+              placeholder={t("password")}
             />
           </Stack>
         </DialogContent>
         <DialogActions>
-          <Button type="submit">Sign In</Button>
+          <Button type="submit">{t("signIn")}</Button>
         </DialogActions>
       </Paper>
     </Form>

@@ -1,6 +1,6 @@
 import type { RouteObject } from "react-router";
 
-import { IndexPage, AuthPage } from "../../pages";
+import { IndexPage, AuthPage } from "@pages";
 import { routes } from "@shared/libs";
 import { NonAuthLayout, AuthLayout } from "@app/layouts";
 
